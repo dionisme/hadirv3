@@ -15,10 +15,18 @@ cache:
   directories: 
   - $HOME/.pub-cache
 before_deploy: 
-  - pushd build/ios/iphoneos 
+  - pushd build/ios 
   - mkdir Payload 
   - cd Payload 
   - ln -s ../Runner.app 
   - cd .. 
   - zip -r app.ipa Payload 
   - popd
+deploy:
+  provider: releases
+  api_key:
+    secure: UCFWK1rdJMCgrE0n-IR6WA
+  file: build/ios/app.ipa
+  skip_cleanup: true
+  on:
+    repo: https://github.com/dionisme/hadirv3
