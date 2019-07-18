@@ -23,10 +23,10 @@ before_deploy:
   - zip -r app.ipa Payload 
   - popd
 deploy:
-  provider: releases
-  api_key:
-    secure: UCFWK1rdJMCgrE0n-IR6WA
-  file: build/ios/iphoneos/app.ipa
-  skip_cleanup: true
-  on:
-    repo: https://github.com/dionisme/hadirv3
+ provider: releases
+ api_key:
+  secure: 9c4b379e521af0ea5086fdde672aa5b731f50815
+ file: build/ios/iphoneos/app.ipa
+ skip_cleanup: true #important or your built app would be deleted
+ on:
+  repo: https://github.com/dionisme/hadirv3
